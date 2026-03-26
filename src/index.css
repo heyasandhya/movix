@@ -24,12 +24,15 @@
   body {
     font-family: "DM Sans", serif;
     font-optical-sizing: auto;
-    background: #030014;
+    background: radial-gradient(circle at top, #0a0620, #030014);
   }
 
   h1 {
     @apply mx-auto max-w-4xl text-center text-5xl font-bold leading-tight tracking-[-1%] text-white sm:text-[64px] sm:leading-[76px];
-    text-shadow: 0 0 20px rgba(176, 152, 243, 0.6); /* 🔥 glow added */
+
+    text-shadow:
+      0 0 10px rgba(176, 152, 243, 0.6),
+      0 0 30px rgba(72, 0, 255, 0.7);
   }
 
   h2 {
@@ -37,7 +40,7 @@
   }
 
   main {
-    @apply min-h-screen relative bg-primary;
+    @apply min-h-screen relative bg-primary overflow-x-hidden;
   }
 
   header {
@@ -46,15 +49,19 @@
 
   header img {
     @apply w-full max-w-lg h-56 object-contain mx-auto drop-shadow-md;
-    filter: drop-shadow(0 0 20px rgba(72, 0, 255, 0.4)); /* 🔥 glow */
+
+    filter:
+      drop-shadow(0 0 20px rgba(72, 0, 255, 0.5))
+      drop-shadow(0 0 40px rgba(176, 152, 243, 0.3));
   }
 }
 
 @layer components {
   .pattern {
     background:
-      radial-gradient(circle at 30% 20%, rgba(72, 0, 255, 0.25), transparent 40%),
-      linear-gradient(rgba(3, 0, 20, 0.85), rgba(3, 0, 20, 0.95)),
+      radial-gradient(circle at 20% 30%, rgba(120, 0, 255, 0.25), transparent 45%),
+      radial-gradient(circle at 80% 20%, rgba(0, 150, 255, 0.15), transparent 40%),
+      linear-gradient(rgba(3, 0, 20, 0.9), rgba(3, 0, 20, 0.95)),
       url("/backnew.jpg");
 
     @apply w-full h-full bg-center bg-cover absolute z-0;
@@ -72,7 +79,7 @@
     }
 
     & ul li {
-      @apply min-w-[230px] flex flex-row items-center transition-transform duration-300 hover:scale-105; /* 🔥 hover */
+      @apply min-w-[230px] flex flex-row items-center transition-all duration-300 hover:scale-105;
     }
 
     & ul li p {
@@ -81,14 +88,19 @@
 
     & ul li img {
       @apply w-[132px] h-[200px] rounded-lg object-cover -ml-3.5;
-      box-shadow: 0 0 12px rgba(176, 152, 243, 0.4); /* 🔥 glow */
+
+      box-shadow:
+        0 0 15px rgba(176, 152, 243, 0.5),
+        0 5px 20px rgba(0, 0, 0, 0.6);
     }
   }
 
   .search {
-    @apply w-full bg-light-100/5 backdrop-blur-lg px-4 py-3 rounded-lg mt-10 max-w-3xl mx-auto border border-white/10;
+    @apply w-full bg-white/5 backdrop-blur-xl px-4 py-3 rounded-xl mt-10 max-w-3xl mx-auto border border-white/10;
 
-    box-shadow: 0 0 20px rgba(72, 0, 255, 0.15); /* 🔥 glow */
+    box-shadow:
+      0 0 25px rgba(72, 0, 255, 0.2),
+      inset 0 0 10px rgba(255, 255, 255, 0.05);
 
     & div {
       @apply relative flex items-center;
@@ -112,13 +124,17 @@
   }
 
   .movie-card {
-    @apply bg-dark-100/80 backdrop-blur-md p-5 rounded-2xl shadow-inner shadow-light-100/10 transition-all duration-300 hover:scale-[1.04];
+    @apply bg-dark-100/80 backdrop-blur-md p-5 rounded-2xl shadow-inner shadow-light-100/10 transition-all duration-300 hover:scale-[1.05];
 
-    box-shadow: 0 0 15px rgba(72, 0, 255, 0.2); /* 🔥 base glow */
+    box-shadow:
+      0 0 15px rgba(72, 0, 255, 0.2),
+      0 10px 30px rgba(0, 0, 0, 0.5);
   }
 
   .movie-card:hover {
-    box-shadow: 0 0 25px rgba(72, 0, 255, 0.4); /* 🔥 hover glow */
+    box-shadow:
+      0 0 30px rgba(72, 0, 255, 0.5),
+      0 15px 40px rgba(0, 0, 0, 0.7);
   }
 
   .movie-card img {
